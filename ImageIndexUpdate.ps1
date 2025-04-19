@@ -52,7 +52,7 @@ $imageFiles = Get-ChildItem -Path $folderPath -Recurse -Filter "*.png"
 $columnCounter = 0
 
 # Start the first table row
-$htmlContent += "        <tr>`n"
+$htmlContent += "        <tr>`r`n"
 $i = 0
 foreach ($image in $imageFiles) {
     $i += 1
@@ -85,14 +85,14 @@ foreach ($image in $imageFiles) {
     # Check if 3 columns are filled
     if ($columnCounter -eq 3) {
         # Close the current row and start a new one
-        $htmlContent += "        </tr>`n        <tr>`n"
+        $htmlContent += "        </tr>`r`n        <tr>`r`n"
         $columnCounter = 0
     }
 }
 
 # Close any remaining open row
 if ($columnCounter -ne 0) {
-    $htmlContent += "        </tr>`n"
+    $htmlContent += "        </tr>`r`n"
 }
 
 # Close the table and HTML tags
